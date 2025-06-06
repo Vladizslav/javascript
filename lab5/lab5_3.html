@@ -8,6 +8,9 @@
         #text {
             font-size: 20px;
             margin: 20px 0;
+            height: 1.2em; /* Фиксируем высоту контейнера */
+            line-height: 1.2em; /* Для вертикального выравнивания */
+            overflow: hidden; /* Скрываем выходящий за границы контент */
         }
     </style>
 </head>
@@ -20,11 +23,11 @@
     const textElement = document.getElementById('text');
     const toggleButton = document.getElementById('toggleButton');
     toggleButton.addEventListener('click', function() {
-        if (textElement.style.display === 'none') {
-            textElement.style.display = 'block';
+        if (textElement.style.visibility === 'hidden') {
+            textElement.style.visibility = 'visible'; // Показываем текст
             toggleButton.textContent = 'Скрыть текст';
         } else {
-            textElement.style.display = 'none';
+            textElement.style.visibility = 'hidden'; // Скрываем текст (место остается занятым)
             toggleButton.textContent = 'Показать текст';
         }
     });
