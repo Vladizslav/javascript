@@ -8,14 +8,6 @@
         #text {
             font-size: 20px;
             margin: 20px 0;
-            /* Сохраняем размеры при скрытии */
-            visibility: visible;
-            height: auto;
-            min-height: 1em; /* Минимальная высота для пустого состояния */
-        }
-
-        #text.hidden {
-            visibility: hidden; /* Элемент невидим, но занимает место */
         }
     </style>
 </head>
@@ -27,13 +19,12 @@
 <script>
     const textElement = document.getElementById('text');
     const toggleButton = document.getElementById('toggleButton');
-    
     toggleButton.addEventListener('click', function() {
-        if (textElement.classList.contains('hidden')) {
-            textElement.classList.remove('hidden');
+        if (textElement.style.display === 'none') {
+            textElement.style.display = 'block';
             toggleButton.textContent = 'Скрыть текст';
         } else {
-            textElement.classList.add('hidden');
+            textElement.style.display = 'none';
             toggleButton.textContent = 'Показать текст';
         }
     });
